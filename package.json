@@ -1,6 +1,6 @@
 {
   "name": "rollup-builder",
-  "version": "1.1.14",
+  "version": "1.1.16",
   "author": "Rajesh",
   "license": "MIT",
   "homepage": "https://github.com/Rajeshr34/rollup-builder",
@@ -20,12 +20,16 @@
     "rollup"
   ],
   "scripts": {
-    "prepare:husky": "husky install",
+    "prepare": "husky install",
     "prettier:fix": "prettier --write",
     "prettier:check": "prettier --check src",
     "lint": "eslint --fix src",
-    "build": "yarn lint && rimraf dist && tsc -p tsconfig.json && cat ./package.json | grep -v '\"private\":' > dist/package.json"
+    "build": "yarn lint && rimraf dist && tsc -p tsconfig.json && yarn pk",
+    "pk": "node ./package.json.js"
   },
+  "files": [
+    "dist"
+  ],
   "lint-staged": {
     "*.{tsx,ts,js,css,md}": [
       "yarn prettier:fix",
@@ -51,7 +55,8 @@
     "@rollup/plugin-commonjs": "^21.0.1",
     "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-node-resolve": "^13.0.6",
-    "@rollup/plugin-replace": "^3.0.0"
+    "@rollup/plugin-replace": "^3.0.0",
+    "rollup-plugin-folder-input": "^1.0.1"
   },
   "devDependencies": {
     "typescript": "^4.4.4",
@@ -61,6 +66,7 @@
     "@types/sade": "^1.7.3",
     "husky": "^7.0.4",
     "rimraf": "^3.0.2",
-    "lint-staged": "^11.2.6"
+    "lint-staged": "^11.2.6",
+    "ts-node": "^10.4.0"
   }
 }
