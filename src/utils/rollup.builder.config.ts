@@ -17,11 +17,11 @@ import { DEFAULT_EXTENSIONS as DEFAULT_BABEL_EXTENSIONS } from '@babel/core';
 import sourceMaps from 'rollup-plugin-sourcemaps';
 import { terser } from 'rollup-plugin-terser';
 import { createBabelInputPluginFactory } from '@rollup/plugin-babel';
-import { merge } from 'lodash';
 // @ts-ignore
 import { folderInput } from 'rollup-plugin-folder-input';
 import createLogger, { ProgressEstimator } from 'progress-estimator';
 import progress from 'rollup-plugin-progress';
+import {merge} from 'lodash';
 
 export class RollupBuilderConfig {
   readonly applicationPath: string;

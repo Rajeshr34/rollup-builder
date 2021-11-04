@@ -18,7 +18,7 @@ export class RollupBuilder {
     await this.build(configObject);
   }
 
-  async build(configObject: RollupOptions) {
+  private async build(configObject: RollupOptions) {
     await this.configService.getLogger()(
       this.cleanDistFolder(),
       'Clearing Dist Folder'
@@ -33,7 +33,7 @@ export class RollupBuilder {
     );
   }
 
-  async cleanDistFolder() {
+  private async cleanDistFolder() {
     fs.rmdirSync(this.configService.getDist(), { recursive: true });
   }
 }

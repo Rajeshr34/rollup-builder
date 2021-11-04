@@ -1,6 +1,6 @@
 {
   "name": "rollup-builder",
-  "version": "1.1.16",
+  "version": "1.2.1",
   "author": "Rajesh",
   "license": "MIT",
   "homepage": "https://github.com/Rajeshr34/rollup-builder",
@@ -24,8 +24,8 @@
     "prettier:fix": "prettier --write",
     "prettier:check": "prettier --check src",
     "lint": "eslint --fix src",
-    "build": "yarn lint && rimraf dist && tsc -p tsconfig.json && yarn pk",
-    "pk": "node ./package.json.js"
+    "build": "yarn lint && rimraf dist && tsc -p tsconfig.json && yarn pkts",
+    "pkts": "ts-node ./package.json.ts"
   },
   "files": [
     "dist"
@@ -44,7 +44,7 @@
     "@typescript-eslint/eslint-plugin": "^5.3.0",
     "@typescript-eslint/parser": "^5.3.0",
     "eslint": "^8.1.0",
-    "lodash.merge": "^4.6.2",
+    "lodash-es": "^4.17.21",
     "prettier": "^2.4.1",
     "progress-estimator": "^0.3.0",
     "rollup": "^2.59.0",
@@ -60,13 +60,14 @@
   },
   "devDependencies": {
     "typescript": "^4.4.4",
-    "@types/lodash.merge": "^4.6.6",
+    "@types/lodash-es": "^4.17.5",
     "@types/node": "^16.11.6",
     "@types/rollup-plugin-progress": "^1.1.1",
     "@types/sade": "^1.7.3",
     "husky": "^7.0.4",
     "rimraf": "^3.0.2",
     "lint-staged": "^11.2.6",
-    "ts-node": "^10.4.0"
+    "ts-node": "^10.4.0",
+    "lodash": "^4.17.21"
   }
 }
