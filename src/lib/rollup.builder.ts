@@ -1,9 +1,9 @@
-import RollupBuilderConfig from './utils/rollup.builder.config';
-import NodeArgs from './utils/node.args';
+import { RollupBuilderConfig } from '../utils/rollup.builder.config';
+import { NodeArgs } from '../utils/node.args';
 import { OutputOptions, rollup, RollupOptions } from 'rollup';
 import * as fs from 'fs';
 
-export default class RollupBuilder {
+export class RollupBuilder {
   private readonly configService: RollupBuilderConfig;
 
   constructor(applicationPath: string, argv: string[]) {

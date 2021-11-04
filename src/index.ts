@@ -1,5 +1,5 @@
-import RollupBuilder from './rollup.builder';
+import { RollupBuilder } from './lib/rollup.builder';
 
 export default {
-  RollupBuilder,
+  builder: RollupBuilder,
 };

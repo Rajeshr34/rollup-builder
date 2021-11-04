@@ -1,7 +1,7 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import { RollupArgsInterface } from '../interfaces/project.args.interface';
-import NodeArgs from './node.args';
+import { NodeArgs } from './node.args';
 import { ApplicationPackageInterface } from '../interfaces/application.package.interface';
 import ts from 'typescript';
 import { RollupOptions } from 'rollup';
@@ -23,7 +23,7 @@ import { folderInput } from 'rollup-plugin-folder-input';
 import createLogger, { ProgressEstimator } from 'progress-estimator';
 import progress from 'rollup-plugin-progress';
 
-export default class RollupBuilderConfig {
+export class RollupBuilderConfig {
   readonly applicationPath: string;
   public readonly nodeArgs: NodeArgs<RollupArgsInterface>;
   private readonly applicationInfo: ApplicationPackageInterface;
