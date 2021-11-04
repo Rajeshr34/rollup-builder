@@ -3,12 +3,10 @@
     "src/index.ts"
   ],
   "exclude": [
-    "src/template/**/*"
   ],
   "compilerOptions": {
     "outDir": "dist",
     "target": "ES2018",
-    "allowJs": true,
     "rootDir": "src",
     "importHelpers": true,
     // output .d.ts declaration files for consumers
