@@ -47,7 +47,7 @@ export class RollupBuilder {
             'Clearing Dist Folder'
         );
         configObject.watch = <WatcherOptions>{
-            include: configObject.input?.includes,
+            include: (configObject.input) as string[][0],
             buildDelay: 500,
             clearScreen: true
         }
