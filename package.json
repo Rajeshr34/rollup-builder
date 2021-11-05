@@ -7,7 +7,6 @@
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
     "private": true,
-    "type": "module",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Rajeshr34/rollup-builder.git"
