@@ -25,7 +25,7 @@
         "prettier:check": "prettier --check src",
         "lint": "eslint --fix ./src/",
         "build": "yarn lint && rimraf dist && tsc -p tsconfig.json && yarn pkts",
-        "pkts": "node --loader ts-node/esm ./package.json.ts"
+        "pkts": "ts-node ./package.json.ts"
     },
     "files": [
         "dist"
