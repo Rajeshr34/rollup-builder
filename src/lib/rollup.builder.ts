@@ -1,7 +1,11 @@
 import { RollupBuilderConfig } from '../utils/rollup.builder.config';
-import { NodeArgs } from '../utils/node.args';
+import { RollupNodeArgs } from '../utils/rollup.node.args';
 import { OutputOptions, rollup, RollupOptions, RollupWatchOptions, watch, WatcherOptions } from 'rollup';
 import * as fs from 'fs';
+import { clearConsole } from '../utils/rollup.build.helpers';
+import ora from 'ora';
+import chalk from 'chalk';
+import logError from '../utils/rollup.log.error';
 
 export class RollupBuilder {
     private readonly configService: RollupBuilderConfig;
@@ -9,7 +13,7 @@ export class RollupBuilder {
     constructor(applicationPath: string, argv: string[]) {
         this.configService = new RollupBuilderConfig(
             applicationPath,
-            new NodeArgs(argv)
+            new RollupNodeArgs(argv)
         );
     }
 
@@ -50,10 +54,29 @@ export class RollupBuilder {
             include: (configObject.input) as string[][0],
             buildDelay: 500,
             clearScreen: true
-        }
+        };
         const watcher = watch(configObject);
-        watcher.on("event",(event) =>  {
+        const spinner = ora().start();
+        watcher.on('event', (event) => {
+            switch (event.code) {
+                case 'START':
+                    clearConsole();
+                    spinner.start(chalk.bold.cyan('Compiling modules...'));
+                    break;
+                case 'BUNDLE_START':
+                    break;
+                case 'BUNDLE_END':
+                    break;
+                case 'END':
+                    spinner.succeed(chalk.bold.green('Compiled successfully'));
+                    console.log(`${chalk.dim('Watching for changes')}`);
+                    break;
+                case 'ERROR':
+                    spinner.fail(chalk.bold.red('Failed to compile'));
+                    logError(event.error);
+                    break;
+            }
             console.log(event);
-        })
+        });
     }
 }

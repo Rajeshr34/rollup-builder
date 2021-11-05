@@ -1,4 +1,4 @@
-export class NodeArgs<T> {
+export class RollupNodeArgs<T> {
   private argv: string[];
   private keyValueArgs: { [key: string]: any } = {};
 

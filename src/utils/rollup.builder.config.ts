@@ -1,7 +1,7 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import { RollupArgsInterface } from '../interfaces/project.args.interface';
-import { NodeArgs } from './node.args';
+import { RollupNodeArgs } from './rollup.node.args';
 import { ApplicationPackageInterface } from '../interfaces/application.package.interface';
 import ts from 'typescript';
 import { RollupOptions } from 'rollup';
@@ -11,7 +11,7 @@ import resolve, {
 import commonjs from '@rollup/plugin-commonjs';
 import json from '@rollup/plugin-json';
 import * as rollTs from 'rollup-plugin-ts';
-import { safeVariableName } from './build.helpers';
+import { safeVariableName } from './rollup.build.helpers';
 import replace from '@rollup/plugin-replace';
 import { DEFAULT_EXTENSIONS as DEFAULT_BABEL_EXTENSIONS } from '@babel/core';
 import sourceMaps from 'rollup-plugin-sourcemaps';
@@ -25,13 +25,13 @@ import {merge} from 'lodash';
 
 export class RollupBuilderConfig {
   readonly applicationPath: string;
-  public readonly nodeArgs: NodeArgs<RollupArgsInterface>;
+  public readonly nodeArgs: RollupNodeArgs<RollupArgsInterface>;
   private readonly applicationInfo: ApplicationPackageInterface;
   private logger!: ProgressEstimator;
 
   constructor(
     applicationPath: string,
-    rollupBuilderConfig: NodeArgs<RollupArgsInterface>
+    rollupBuilderConfig: RollupNodeArgs<RollupArgsInterface>
   ) {
     this.applicationPath = applicationPath;
     this.nodeArgs = rollupBuilderConfig;
