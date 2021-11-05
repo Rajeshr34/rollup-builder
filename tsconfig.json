@@ -7,7 +7,7 @@
     ],
     "compilerOptions": {
         "outDir": "dist",
-        "target": "ES2018",
+        "target": "ES6",
         "rootDir": "src",
         "importHelpers": true,
         // output .d.ts declaration files for consumers
@@ -26,6 +26,6 @@
         "esModuleInterop": true,
         // significant perf increase by skipping checking .d.ts files, particularly those in node_modules. Recommended by TS
         "skipLibCheck": true,
-        "module": "commonjs"
+        "module": "ES6"
     }
 }

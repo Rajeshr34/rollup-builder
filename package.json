@@ -7,6 +7,7 @@
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
     "private": true,
+    "type": "module",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Rajeshr34/rollup-builder.git"
@@ -23,9 +24,9 @@
         "prepare": "husky install",
         "prettier:fix": "prettier --write",
         "prettier:check": "prettier --check src",
-        "lint": "eslint --fix src",
+        "lint": "eslint --fix ./src/",
         "build": "yarn lint && rimraf dist && tsc -p tsconfig.json && yarn pkts",
-        "pkts": "ts-node ./package.json.ts"
+        "pkts": "node --loader ts-node/esm ./package.json.ts"
     },
     "files": [
         "dist"
@@ -45,9 +46,6 @@
         "@rollup/plugin-json": "^4.1.0",
         "@rollup/plugin-node-resolve": "^13.0.6",
         "@rollup/plugin-replace": "^3.0.0",
-        "@typescript-eslint/eslint-plugin": "^5.3.0",
-        "@typescript-eslint/parser": "^5.3.0",
-        "eslint": "^8.1.0",
         "fs-extra": "^10.0.0",
         "lodash-es": "^4.17.21",
         "prettier": "^2.4.1",
@@ -67,6 +65,10 @@
         "@types/node": "^16.11.6",
         "@types/rollup-plugin-progress": "^1.1.1",
         "@types/sade": "^1.7.3",
+        "@types/chalk": "^2.2.0",
+        "@typescript-eslint/eslint-plugin": "^5.3.0",
+        "@typescript-eslint/parser": "^5.3.0",
+        "eslint": "^8.1.0",
         "husky": "^7.0.4",
         "lint-staged": "^11.2.6",
         "lodash": "^4.17.21",
